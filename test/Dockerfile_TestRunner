@@ -1,0 +1,7 @@
+FROM appropriate/curl
+
+COPY ./test.sh /test.sh
+RUN chmod +x /test.sh
+
+ENTRYPOINT ["sh"]
+CMD ["/test.sh"]

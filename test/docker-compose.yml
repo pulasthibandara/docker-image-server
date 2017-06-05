@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  image_server:
+    build:
+      context: ../
+    volumes:
+      - ./images:/images
+      - ./.tmp:/image_cache
+  test_runner:
+    build:
+      context: ./
+      dockerfile: Dockerfile_TestRunner
+    depends_on: 
+      - image_server
